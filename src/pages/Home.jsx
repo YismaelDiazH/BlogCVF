@@ -9,7 +9,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`/posts${cat}`);
+        const res = await axios.get(`https://api-blogcv.onrender.com/api/posts${cat}`);
         setPosts(res.data);
       } catch (error) {
         console.log(error);
@@ -18,7 +18,6 @@ const Home = () => {
     fetchData();
   }, [cat]);
 
-  // const posts = [
   //   {
   //     id: "1",
   //     title: "Post Title",
