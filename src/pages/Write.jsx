@@ -6,7 +6,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import moment from "moment";
 
 const Write = () => {
-  const state = useLocation().state;
   const [progress, setProgress] = useState(0);
   const { state: postToEdit } = useLocation();
   const isEditing = postToEdit !== undefined;
@@ -95,12 +94,12 @@ const Write = () => {
             <div className="bg-stone-200 rounded-lg p-2 mb-4">
               <div>
                 <div className="inline-flex rounded-md shadow-sm">
-                  <a
-                    href="#"
+                  <button
+                  disabled
                     className="px-4 py-2 text-sm font-medium text-orange-400 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-orange-700 focus:text-orange-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-orange-500 dark:focus:text-white"
                   >
                     Enregister brouillon
-                  </a>
+                  </button>
 
                   <button
                     onClick={handleClick}

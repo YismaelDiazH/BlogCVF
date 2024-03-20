@@ -1,7 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../img/logo.png";
 import React, { useState, useContext } from "react";
-import axios from "axios";
 import { AuthContext } from "../context/authContext.js";
 
 const Login = () => {
