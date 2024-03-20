@@ -23,7 +23,7 @@ const Single = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`/posts/${postId}`);
+        const res = await axios.get(`https://api-blogcv.onrender.com/api/posts/${postId}`);
         setPost(res.data);
       } catch (error) {
         console.log(error);
