@@ -50,18 +50,16 @@ const Write = () => {
       img: imgUrl, 
       date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
     };
-  
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
     try {
-      if (isEditing && postToEdit && postToEdit.id) { // Verifica si está editando y postToEdit tiene un id
-        // Actualizar el post existente
-        await axios.put(`https://api-blogcv.onrender.com/api/posts/${postToEdit.id}`, postDetails);
+      if (isEditing && postToEdit && postToEdit.id) { 
+        await axios.put(`https://api-blogcv.onrender.com/api/posts/${postToEdit.id}`, postDetails, config);
       } else {
         // Crear un nuevo post
-        await axios.post("https://api-blogcv.onrender.com/api/posts", postDetails, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        await axios.post("https://api-blogcv.onrender.com/api/posts", postDetails, config);
+        
       }
       navigate("/");
     } catch (error) {
