@@ -53,10 +53,10 @@ const Write = () => {
     try {
       if (isEditing && postToEdit && postToEdit.id) { // Verifica si está editando y postToEdit tiene un id
         // Actualizar el post existente
-        await axios.put(`/posts/${postToEdit.id}`, postDetails);
+        await axios.put(`https://api-blogcv.onrender.com/api/posts/${postToEdit.id}`, postDetails);
       } else {
         // Crear un nuevo post
-        await axios.post("/posts", postDetails);
+        await axios.post("https://api-blogcv.onrender.com/api/posts/", postDetails);
       }
       navigate("/");
     } catch (error) {
