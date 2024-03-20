@@ -57,7 +57,7 @@ const Home = () => {
       <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8 flex flex-col-reverse items-center">
         {posts.map((post) => (
           <Link
-            to={`/post/${post.id}`}
+            to={`https://api-blogcv.onrender.com/api/post/${post.id}`}
             className=" w-full flex flex-col items-center justify-between mx-10  md:flex-row p-4 odd:md:flex-row-reverse dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 m-4 hover:bg-amber-50 hover:rounded-lg "
             key={post.id}
           >
