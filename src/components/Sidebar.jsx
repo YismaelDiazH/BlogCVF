@@ -27,7 +27,7 @@ export const Sidebar = ({cat}) => {
         Other post you may like
       </p>
       {posts.map((post) => (
-        <Link to={`/post/${post.id}`}>
+        <Link to={`/post/${post.id}`} key={post.id}>
          <div className="hover:bg-stone-200 rounded-lg p-2 mb-4" key={post.id}>
           <img
             src={post?.img}
