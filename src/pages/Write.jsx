@@ -9,7 +9,7 @@ const Write = () => {
   const [progress, setProgress] = useState(0);
   const { state: postToEdit } = useLocation();
   const isEditing = postToEdit !== undefined;
-  const [title, setTitle] = useState(postToEdit?.title || ""); // Asignación correcta para el título
+  const [title, setTitle] = useState(postToEdit?.title || ""); 
   const [value, setValue] = useState(postToEdit?.desc || "");
   const [cat, setCat] = useState(postToEdit?.cat || "");
   const [imgUrl, setImgUrl] = useState(postToEdit?.img || "");
@@ -19,7 +19,7 @@ const Write = () => {
 
   const upload = async (e) => {
     if (!e.target.files || e.target.files.length === 0) {
-      // No hay nueva imagen seleccionada; no hacer nada
+      
       return;
     }
 
@@ -42,11 +42,12 @@ const Write = () => {
   };
 
   const handleClick = async () => {
+    const token = localStorage.getItem("token"); 
     const postDetails = {
       title,
       desc: value,
       cat,
-      img: imgUrl, // Asegúrate de que imgUrl contiene la URL correcta
+      img: imgUrl, 
       date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
     };
   
@@ -56,7 +57,11 @@ const Write = () => {
         await axios.put(`https://api-blogcv.onrender.com/api/posts/${postToEdit.id}`, postDetails);
       } else {
         // Crear un nuevo post
-        await axios.post("https://api-blogcv.onrender.com/api/posts", postDetails);
+        await axios.post("https://api-blogcv.onrender.com/api/posts", postDetails, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
       }
       navigate("/");
     } catch (error) {
