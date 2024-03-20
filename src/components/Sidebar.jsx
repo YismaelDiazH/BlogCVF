@@ -8,7 +8,7 @@ export const Sidebar = ({cat}) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`/posts/?cat=${cat}`);
+        const res = await axios.get(`https://api-blogcv.onrender.com/api/posts/?cat=${cat}`);
         setPosts(res.data);
       } catch (error) {
         console.log(error);
