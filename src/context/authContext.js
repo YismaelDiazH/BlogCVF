@@ -2,10 +2,7 @@ import axios from "axios";
 import { createContext, useState } from "react";
 import { useEffect } from "react";
 
-const baseURL = process.env.NODE_ENV === 'development' 
-  ? 'http://localhost:8000/api' // URL de desarrollo
-  : 'https://api-blogcv.onrender.com/api'; // URL de producción
-
+const baseURL = 'https://api-blogcv.onrender.com/api';
 // Crea una instancia de axios con la URL base
 const axiosInstance = axios.create({
   baseURL: baseURL
