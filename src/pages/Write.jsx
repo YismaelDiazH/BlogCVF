@@ -56,7 +56,7 @@ const Write = () => {
         await axios.put(`https://api-blogcv.onrender.com/api/posts/${postToEdit.id}`, postDetails);
       } else {
         // Crear un nuevo post
-        await axios.post("https://api-blogcv.onrender.com/api/posts/", postDetails);
+        await axios.post("https://api-blogcv.onrender.com/api/posts", postDetails);
       }
       navigate("/");
     } catch (error) {
